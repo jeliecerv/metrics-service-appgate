@@ -1,0 +1,2 @@
+DEFAULT_DATE = "%Y%m%d"
+DEFAULT_TIME = "%H:%M:%S"
