@@ -7,6 +7,7 @@ from fastapi.params import Query
 
 from app.DTO.payloads import LogsHandling, MetricsKey
 from app.utils.parse_logs import parse_data_from_log
+from app.utils.constants import INTERNAL_IPS
 
 app = FastAPI()
 
@@ -48,18 +49,52 @@ async def metrics(
     client_id: Optional[str] = None,
 ):
     df = pd.read_csv("data/data.csv")
-    if metric_key in [
-        MetricsKey.is_user_know,
-        MetricsKey.last_successful_login_date,
-        MetricsKey.last_failed_login_date,
-    ]:
+    df["datetime"] = pd.to_datetime(df["datetime"])
+
+    if metric_key in [MetricsKey.is_user_know]:
         df["indexes"] = df["message"].str.find(username)
         return any(df.loc[df.indexes > -1].any())
-    elif metric_key in [MetricsKey.is_ip_know, MetricsKey.is_ip_internal]:
+
+    if metric_key in [MetricsKey.is_ip_know]:
         df["indexes"] = df["message"].str.find(ip)
         return any(df.loc[df.indexes > -1].any())
-    elif metric_key in [MetricsKey.is_client_know]:
+
+    if metric_key in [MetricsKey.is_ip_internal]:
+        df["indexes"] = df["message"].str.find(ip)
+        if any(df.loc[df.indexes > -1].any()):
+            return ip in INTERNAL_IPS
+
+    if metric_key in [MetricsKey.is_client_know]:
         df["indexes"] = df["message"].str.find(client_id)
-    else:
-        pass
-    return {"message": "Hello World"}
+        return any(df.loc[df.indexes > -1].any())
+
+    if metric_key in [MetricsKey.last_successful_login_date]:
+        df["indexes"] = df["message"].str.find(username)
+        df["indexes"] = df.loc[df.indexes > -1]["message"].str.find("policy_login")
+        df = df.loc[df.indexes > -1].sort_values(
+            by=["datetime"], inplace=False, ascending=False
+        )
+        if any(df.loc[df.indexes > -1].any()):
+            return df.iloc[0].datetime
+        else:
+            return "Is not login yet"
+
+    if metric_key in [MetricsKey.last_failed_login_date]:
+        df["indexes"] = df["message"].str.find(username)
+        df["indexes"] = df.loc[df.indexes > -1]["message"].str.find("Failed")
+        df = df.loc[df.indexes > -1].sort_values(
+            by=["datetime"], inplace=False, ascending=False
+        )
+        if any(df.loc[df.indexes > -1].any()):
+            return df.iloc[0].datetime
+        else:
+            return "Is not login yet"
+
+    if metric_key in [MetricsKey.failed_login_count_last_week]:
+        today = datetime.datetime.today()
+        start_delta = datetime.timedelta(weeks=1)
+        start_of_week = today - start_delta
+        df = df.loc[df.datetime > start_of_week]
+        df["indexes"] = df["message"].str.find("Failed")
+        df = df.loc[df.indexes > -1]
+        return df.count()
