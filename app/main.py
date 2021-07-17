@@ -2,21 +2,25 @@ import datetime
 from typing import Optional
 
 import pandas as pd
-from fastapi import FastAPI, File, UploadFile
+from fastapi import Depends, FastAPI, File, UploadFile
 from fastapi.params import Query
 
-from app.DTO.payloads import MetricsKey
+from app.DTO.payloads import LogsHandling, MetricsKey
 from app.utils.parse_logs import parse_data_from_log
 
 app = FastAPI()
 
 
-@app.post("/log")
-async def handling_log(log_file: UploadFile = File(...)):
+@app.post(
+    "/log",
+    description="Handling all the raw text logs",
+)
+async def handling_log(
+    logs_handling: LogsHandling = Depends(LogsHandling),
+    log_file: UploadFile = File(...),
+):
     data = []
-    for parsed_record in parse_data_from_log(
-        log_file, "{date:date} {time:time} {module} {client_id} {message}"
-    ):
+    for parsed_record in parse_data_from_log(log_file, logs_handling.logs_format):
         data.append(
             {
                 "datetime": datetime.datetime.combine(
