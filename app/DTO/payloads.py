@@ -5,6 +5,7 @@ from pydantic import BaseModel
 
 
 class MetricsKey(str, Enum):
+    all_metrics = "AllMetrics".lower()
     is_user_know = "IsUserKnown".lower()
     is_client_know = "IsClientKnown".lower()
     is_ip_know = "IsIPKnown".lower()
