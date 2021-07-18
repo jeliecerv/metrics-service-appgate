@@ -64,7 +64,7 @@ def search_metrics(
             result[MetricsKey.is_ip_internal.value] = False
 
     if metric_key in [MetricsKey.is_client_know, MetricsKey.all_metrics]:
-        df["indexes"] = df["message"].str.find(client_id)
+        df["indexes"] = df["client_id"].str.find(client_id)
         result[MetricsKey.is_client_know.value] = any(df.loc[df.indexes > -1].any())
 
     if metric_key in [MetricsKey.last_successful_login_date, MetricsKey.all_metrics]:
