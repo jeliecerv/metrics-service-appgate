@@ -1,0 +1,26 @@
+README.md
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+.pytest_cache
+
+# Exclude "build-time" ignore files.
+.dockerignore
+.gcloudignore
+
+# Exclude git history and configuration.
+.gitignore
+
+# vscode
+.vscode
+.env
+env.example
+README.md
+
+# ... except for dependencies and source
+!Pipfile
+!Pipfile.lock
+
+# project ignore
+data

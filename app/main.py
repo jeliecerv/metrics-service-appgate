@@ -1,8 +1,9 @@
 import datetime
+import os
 from typing import Optional
 
 import pandas as pd
-from fastapi import Depends, FastAPI, File, UploadFile, HTTPException
+from fastapi import Depends, FastAPI, File, HTTPException, UploadFile
 from fastapi.params import Query
 
 from app.DTO.payloads import LogsHandling, MetricsKey
@@ -32,6 +33,8 @@ async def handling_log(
             }
         )
     df = pd.DataFrame(data)
+    if not os.path.isdir("data"):
+        os.mkdir("data")
     df.to_csv("data/data.csv", index=False)
     return {"filename": log_file.filename}
 
