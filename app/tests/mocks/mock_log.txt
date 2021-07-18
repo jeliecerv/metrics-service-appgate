@@ -1,0 +1,56 @@
+20140616 05:42:52 vm5 [4f8a7f94:533e226f] sshd transport algorithms: direction=client->server cipher=aes128-ctr mac=hmac-sha1 compression=none
+20140616 05:42:52 vm5 [4f8a7f94:533e226f] sshd transport algorithms: direction=server->client cipher=aes128-ctr mac=hmac-sha1 compression=none
+20140616 05:42:54 vm5 [4f8a7f94:533e226f] ag_userd Looking for account source for 'root'
+20140616 05:42:54 vm5 [4f8a7f94:533e226f] ag_userd User 'root' was not found
+20140616 05:42:54 vm5 [4f8a7f94:533e226f] ag_userd 'root' not found in any account source
+20140616 05:42:54 vm5 [4f8a7f94:533e226f] sshd policy_login: unknown user 'root'
+20140616 05:42:54 vm5 [4f8a7f94:533e226f] sshd input_userauth_request: invalid user root
+20140616 05:42:54 vm5 [4f8a7f94:533e226f] sshd Failed none for invalid user root from 61.174.51.202 port 30293 ssh2
+20140616 05:42:54 vm5 [4f8a7f94:533e226f] sshd Connection closed by 61.174.51.202
+20140616 05:42:54 vm5 [4f8a7f94:533e226f] sshd Connection closed by 61.174.51.202
+20140616 05:42:54 vm5 [4f8a7f94:533e226f] SUSPECT blocked login root from 61.174.51.202 (none)
+20140616 05:43:03 vm4 [4f8a7f8f:00000006] ag_userd Updating ad data
+20140616 05:43:03 vm4 [4f8a7f8f:00000006] ag_userd Start to search for AD groups
+20140616 05:43:13 vm5 [4f8a7f94:533e2272] connect to port 22 from 61.174.51.202
+20140616 05:43:14 vm5 [4f8a7f94:533e2272] sshd Client protocol 2.0; client software version libssh2_1.4.2; AppGate version 10.2.2dev_2014032715
+20140616 05:43:14 vm5 [4f8a7f94:533e2272] sshd transport algorithms: direction=client->server cipher=aes128-ctr mac=hmac-sha1 compression=none
+20140616 05:43:14 vm5 [4f8a7f94:533e2272] sshd transport algorithms: direction=server->client cipher=aes128-ctr mac=hmac-sha1 compression=none
+20140616 05:43:16 vm5 [4f8a7f94:533e226f] ag_userd Client exited.
+20140616 05:43:16 vm5 [4f8a7f94:533e2272] ag_userd Looking for account source for 'root'
+20140616 05:43:16 vm5 [4f8a7f94:533e2272] ag_userd User 'root' was not found
+20140616 05:43:16 vm5 [4f8a7f94:533e2272] ag_userd 'root' not found in any account source
+20140616 05:43:16 vm5 [4f8a7f94:533e2272] sshd policy_login: unknown user 'root'
+20140616 05:43:16 vm5 [4f8a7f94:533e2272] sshd input_userauth_request: invalid user root
+20140616 05:43:16 vm5 [4f8a7f94:533e2272] sshd Failed none for invalid user root from 61.174.51.202 port 35631 ssh2
+20140616 05:43:17 vm5 [4f8a7f94:533e2272] sshd Connection closed by 192.168.1.207
+20140616 05:43:17 vm5 [4f8a7f94:533e2272] sshd Connection closed by 61.174.51.202
+20140616 05:43:17 vm5 [4f8a7f94:533e2272] SUSPECT blocked login root from 61.174.51.202 (none)
+20140616 05:43:46 vm5 [4f8a7f94:533e2272] ag_userd Client exited.
+20140616 05:43:50 vm5 [4f8a7f94:533e2275] connect to port 22 from 61.174.51.202
+20140616 05:43:50 vm5 [4f8a7f94:533e2275] sshd Client protocol 2.0; client software version libssh2_1.4.2; AppGate version 10.2.2dev_2014032715
+20140616 05:44:16 vm5 [4f8a7f94:533e2275] sshd transport algorithms: direction=client->server cipher=aes128-ctr mac=hmac-sha1 compression=none
+20140616 05:44:16 vm5 [4f8a7f94:533e2275] sshd transport algorithms: direction=server->client cipher=aes128-ctr mac=hmac-sha1 compression=none
+20140616 05:44:18 vm5 [4f8a7f94:533e2275] ag_userd Looking for account source for 'root'
+20140616 05:44:18 vm5 [4f8a7f94:533e2275] ag_userd User 'root' was not found
+20140616 05:44:18 vm5 [4f8a7f94:533e2275] ag_userd 'root' not found in any account source
+20140616 05:44:18 vm5 [4f8a7f94:533e2275] sshd policy_login: unknown user 'root'
+20140616 05:44:18 vm5 [4f8a7f94:533e2275] sshd input_userauth_request: invalid user root
+20140616 05:44:18 vm5 [4f8a7f94:533e2275] sshd Failed none for invalid user root from 61.174.51.202 port 50463 ssh2
+20140616 05:44:18 vm5 [4f8a7f94:533e2275] sshd Connection closed by 61.174.51.202
+20140616 05:44:18 vm5 [4f8a7f94:533e2275] sshd Connection closed by 61.174.51.202
+20140616 05:44:18 vm5 [4f8a7f94:533e2275] SUSPECT blocked login root from 61.174.51.202 (none)
+20140616 05:44:38 vm5 [4f8a7f94:533e2278] connect to port 22 from 61.174.51.202
+20140616 05:44:38 vm5 [4f8a7f94:533e2278] sshd Client protocol 2.0; client software version libssh2_1.4.2; AppGate version 10.2.2dev_2014032715
+20140616 05:44:47 vm5 [4f8a7f94:533e2278] sshd transport algorithms: direction=client->server cipher=aes128-ctr mac=hmac-sha1 compression=none
+20140616 05:44:47 vm5 [4f8a7f94:533e2278] sshd transport algorithms: direction=server->client cipher=aes128-ctr mac=hmac-sha1 compression=none
+20140616 05:44:48 vm5 [4f8a7f94:533e2275] ag_userd Client exited.
+20140616 05:44:49 vm5 [4f8a7f94:533e2278] ag_userd Looking for account source for 'admin'
+20140616 05:44:49 vm5 [4f8a7f94:533e2278] ag_userd User 'admin' was not found
+20140616 05:44:49 vm5 [4f8a7f94:533e2278] ag_userd 'admin' not found in any account source
+20140616 05:44:49 vm5 [4f8a7f94:533e2278] sshd policy_login: unknown user 'admin'
+20140616 05:44:49 vm5 [4f8a7f94:533e2278] sshd input_userauth_request: invalid user admin
+20140616 05:44:49 vm5 [4f8a7f94:533e2278] sshd Failed none for invalid user admin from 61.174.51.202 port 11875 ssh2
+20140616 05:44:49 vm5 [4f8a7f94:533e2278] sshd Connection closed by 61.174.51.202
+20140616 05:44:49 vm5 [4f8a7f94:533e2278] sshd Connection closed by 61.174.51.202
+20140616 05:44:49 vm5 [4f8a7f94:533e2278] SUSPECT blocked login admin from 61.174.51.202 (none)
+20140616 05:45:02 vm5 [4f8a7f94:533e2278] ag_userd Client exited.

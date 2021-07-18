@@ -7,7 +7,6 @@ from fastapi.params import Query
 
 from app.DTO.payloads import LogsHandling, MetricsKey
 from app.utils.parse_logs import parse_data_from_log
-from app.utils.constants import INTERNAL_IPS
 from app.utils.search_metrics import search_metrics
 
 app = FastAPI()
@@ -22,7 +21,7 @@ async def handling_log(
     log_file: UploadFile = File(...),
 ):
     data = []
-    for parsed_record in parse_data_from_log(log_file, logs_handling.logs_format):
+    for parsed_record in parse_data_from_log(log_file.file, logs_handling.logs_format):
         data.append(
             {
                 "datetime": datetime.datetime.combine(
@@ -37,7 +36,10 @@ async def handling_log(
     return {"filename": log_file.filename}
 
 
-@app.get("/metrics/{metric_key}")
+@app.get(
+    "/metrics/{metric_key}",
+    description="Return metrics for logs",
+)
 async def metrics(
     metric_key: MetricsKey,
     username: Optional[str] = Query(None, min_length=1),
